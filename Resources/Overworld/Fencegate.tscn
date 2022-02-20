@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/Materials/gate_vertical.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Overworld/Fencegate.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 0.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9, 4 )
+
+[node name="Fencegate" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="InteractArea" type="Area2D" parent="."]
+position = Vector2( 0, -1 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="Gate" type="KinematicBody2D" parent="."]
+position = Vector2( 0, -1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
+position = Vector2( 0, 4 )
+shape = SubResource( 4 )
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]

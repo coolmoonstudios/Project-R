@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Textures/Player/player_simple.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Player/light.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.24621
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 3 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2( 0, -1 )
+shape = SubResource( 3 )
+
+[node name="FindRabbit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindRabbit"]
+position = Vector2( 0, -1 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -14 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+
+[node name="ItemHolding" type="TextureRect" parent="."]
+margin_left = -4.0
+margin_top = -10.0
+margin_right = 8.0
+margin_bottom = 2.0
+rect_scale = Vector2( 0.5, 0.5 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.3
+energy = 0.5
+
+[connection signal="area_entered" from="FindRabbit" to="." method="_on_FindRabbit_area_entered"]
+[connection signal="area_exited" from="FindRabbit" to="." method="_on_FindRabbit_area_exited"]

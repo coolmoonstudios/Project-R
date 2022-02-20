@@ -1,0 +1,10 @@
+stats:
+
+
+ENDURANCE	1/20	>>	health, damage output, stamina
+CHARISMA	1/20	>>	friendship gained, conversation options
+MINING		1/20	>>	mining
+FARMING		1/20	>>	farming, rabbits
+GATHERING	1/20	>>	foraging, woodcutting
+
+ECMFG

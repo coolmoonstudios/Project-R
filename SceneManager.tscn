@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/HouseInside.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/HUD/UserInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SceneManager.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Generic/DayNightCycle.gd" type="Script" id=4]
+[ext_resource path="res://Resources/HUD/PauseMenu.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeToBlack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finish_fading"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeToNormal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="HouseInside" parent="CurrentScene" instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="UserInterface" parent="." instance=ExtResource( 2 )]
+follow_viewport_enable = false
+
+[node name="PauseMenu" parent="." instance=ExtResource( 5 )]
+
+[node name="ScreenTransition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ScreenTransition"]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenTransition"]
+autoplay = "FadeToNormal"
+anims/FadeToBlack = SubResource( 1 )
+anims/FadeToNormal = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.690196, 0.690196, 0.690196, 1 )
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="CanvasModulate"]
+wait_time = 10.0
+autostart = true
+
+[node name="Tween" type="Tween" parent="CanvasModulate"]
+
+[connection signal="timeout" from="CanvasModulate/Timer" to="CanvasModulate" method="_on_Timer_timeout"]
