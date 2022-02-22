@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/HUD/OptionsMenu.gd" type="Script" id=2]
+[ext_resource path="res://projecrthemev1.tres" type="Theme" id=3]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Options" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Options"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.14902, 0.141176, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Options"]
+margin_left = 248.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 32.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 176.0
+theme = ExtResource( 3 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay" type="Control" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 30.0
+margin_right = -12.0
+
+[node name="Video" type="Control" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 44.0
+margin_right = -8.0
+margin_bottom = -8.0
+
+[node name="Audio" type="Control" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 44.0
+margin_right = -8.0
+margin_bottom = -8.0
