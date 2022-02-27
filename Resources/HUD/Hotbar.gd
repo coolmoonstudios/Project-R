@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const SlotClass = preload("res://Resources/HUD/Slot.gd")
 

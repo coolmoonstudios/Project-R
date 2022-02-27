@@ -10,6 +10,7 @@ func _input(event):
 
 func _process(_delta):
 	$Day/Label.text = str(PlayerData.season) + ": "+ str(PlayerData.day)
-	$Health/Label.text = str(PlayerData.health)
-	$Energy/Label.text = str(PlayerData.energy)
-	$Action/Label.text = str(PlayerData.action)
+	$Health/HealthBar.value = PlayerData.health
+	$Health/HealthBar.hint_tooltip = str(PlayerData.health)
+	$Action/ActionBar.value = PlayerData.action
+	$Action/ActionBar.hint_tooltip = str(PlayerData.action)

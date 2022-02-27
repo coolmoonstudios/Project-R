@@ -73,19 +73,25 @@ script = ExtResource( 3 )
 [node name="HouseInside" parent="CurrentScene" instance=ExtResource( 1 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 160, 88 )
 current = true
+zoom = Vector2( 0.75, 0.75 )
 
 [node name="UserInterface" parent="." instance=ExtResource( 2 )]
 follow_viewport_enable = false
 
 [node name="PauseMenu" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 
 [node name="ScreenTransition" type="CanvasLayer" parent="."]
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="ScreenTransition"]
 visible = false
-margin_right = 320.0
-margin_bottom = 180.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -99,6 +105,7 @@ anims/FadeToNormal = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( 4, 5 )
 color = Color( 0.690196, 0.690196, 0.690196, 1 )
 script = ExtResource( 4 )
 
