@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Fonts/pixel_font_8px.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Resources/Theme/TabContainer/tab_bg.tres" type="StyleBox" id=2]
+[ext_resource path="res://Resources/Theme/TabContainer/tab_fg.tres" type="StyleBox" id=3]
+
+[resource]
+default_font = ExtResource( 1 )
+TabContainer/constants/side_margin = 16
+TabContainer/constants/top_margin = 16
+TabContainer/styles/panel = ExtResource( 3 )
+TabContainer/styles/tab_bg = ExtResource( 2 )
+TabContainer/styles/tab_fg = ExtResource( 3 )
