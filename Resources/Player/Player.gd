@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 onready var camera = get_tree().get_root().get_node("/root/SceneManager/Camera2D/")
+onready var anim_tree = $AnimationTree
+onready var anim_state = anim_tree.get("parameters/playback")
 
 const ACCELERATION = 300
 const FRICTION = 800
@@ -25,18 +27,22 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		if Input.is_action_pressed("run") and PlayerData.energy > 0:
-			PlayerData.energy -= 1
+		anim_tree.set("parameters/Walk/blend_position", input_vector)
+		anim_tree.set("parameters/Idle/blend_position", input_vector)
+		anim_state.travel("Walk")
+		if Input.is_action_pressed("run") and PlayerData.action > 0:
+			PlayerData.action -= 1
 			max_speed = RUN_SPEED
 		else:
 			max_speed = MAX_SPEED
 			
 		velocity = velocity.move_toward(input_vector * max_speed, ACCELERATION * delta)
 	else:
+		anim_state.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
-	if PlayerData.energy < 100 and !Input.is_action_pressed("run"):
-		PlayerData.energy += 1
+	if PlayerData.action < 1000 and !Input.is_action_pressed("run"):
+		PlayerData.action += 1
 		
 	if holding == true and held_rabbit != null:
 		held_rabbit.position = position + Vector2(0, -8)

@@ -1,6 +1,6 @@
 extends Node
 
-onready var cycle = get_node(NodePath("/root/SceneManager/CanvasModulate"))
+onready var cycle = get_node(NodePath("/root/SceneManager/DayNightManager"))
 
 # day/night stuff
 var time = 0

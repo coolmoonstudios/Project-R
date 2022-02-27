@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://Textures/Player/player_simple.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Player/light.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Player/player_complex.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
 
@@ -11,6 +11,443 @@ radius = 8.24621
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 3 )
+
+[sub_resource type="Animation" id=25]
+resource_name = "C_Idle_Down"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15, 20 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "C_Idle_Left"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 17, 22 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ComplexSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "C_Idle_Right"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 17, 22 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ComplexSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "C_Idle_Up"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 16, 21 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "C_Walk_Down"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ComplexSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "C_Walk_Left"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ComplexSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "C_Walk_Right"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ComplexSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "C_Walk_Up"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ComplexSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ComplexSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../ComplexSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../ComplexSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk_Down"
+length = 0.6
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk_Left"
+length = 0.6
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Walk_Right"
+length = 0.6
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Walk_Up"
+length = 0.6
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "C_Idle_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "C_Idle_Up"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "C_Idle_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "C_Idle_Left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=33]
+blend_point_0/node = SubResource( 29 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 30 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 31 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 32 )
+blend_point_3/pos = Vector2( -1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "C_Walk_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "C_Walk_Up"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "C_Walk_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "C_Walk_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=34]
+blend_point_0/node = SubResource( 35 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 36 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 37 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 38 )
+blend_point_3/pos = Vector2( 1, 0 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachine" id=14]
+states/Idle/node = SubResource( 33 )
+states/Idle/position = Vector2( 411, 120 )
+states/Walk/node = SubResource( 34 )
+states/Walk/position = Vector2( 616, 120 )
+transitions = [ "Idle", "Walk", SubResource( 39 ), "Walk", "Idle", SubResource( 40 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -31,30 +468,53 @@ collision_mask = 8
 position = Vector2( 0, -1 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -14 )
-texture = ExtResource( 1 )
-hframes = 4
+[node name="ComplexSprite" type="Sprite" parent="."]
+position = Vector2( 0, -10 )
+texture = ExtResource( 4 )
+flip_h = true
+hframes = 5
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
 [node name="ItemHolding" type="TextureRect" parent="."]
-margin_left = -4.0
-margin_top = -10.0
-margin_right = 8.0
-margin_bottom = 2.0
+visible = false
+margin_left = -5.0
+margin_top = -29.0
+margin_right = 7.0
+margin_bottom = -17.0
 rect_scale = Vector2( 0.5, 0.5 )
 stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )
 texture_scale = 0.3
 energy = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ComplexSprite")
+anims/C_Idle_Down = SubResource( 25 )
+anims/C_Idle_Left = SubResource( 27 )
+anims/C_Idle_Right = SubResource( 28 )
+anims/C_Idle_Up = SubResource( 26 )
+anims/C_Walk_Down = SubResource( 16 )
+anims/C_Walk_Left = SubResource( 23 )
+anims/C_Walk_Right = SubResource( 24 )
+anims/C_Walk_Up = SubResource( 17 )
+anims/RESET = SubResource( 4 )
+anims/Walk_Down = SubResource( 6 )
+anims/Walk_Left = SubResource( 5 )
+anims/Walk_Right = SubResource( 7 )
+anims/Walk_Up = SubResource( 8 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 14 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 15 )
+parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Walk/blend_position = Vector2( 0, 0.00178254 )
 
 [connection signal="area_entered" from="FindRabbit" to="." method="_on_FindRabbit_area_entered"]
 [connection signal="area_exited" from="FindRabbit" to="." method="_on_FindRabbit_area_exited"]

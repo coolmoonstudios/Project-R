@@ -11,9 +11,13 @@ config_version=4
 [application]
 
 config/name="Project R"
+config/description="A top down RPG similar to games like Stardew Valley and Harvest Moon based around an animal and exploration."
 run/main_scene="res://SceneManager.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="/CoolMoon Studios/ProjectR/"
+boot_splash/image="res://Textures/HUD/splash.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.227451, 0.227451, 0.227451, 1 )
 config/icon="res://icon.png"
 
 [autoload]
