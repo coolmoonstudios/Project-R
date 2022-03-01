@@ -3,6 +3,8 @@ extends KinematicBody2D
 const MAX_WATER = 40	#40
 const MAX_FOOD = 40		#40
 
+export var is_wild = false
+
 var current_state = null
 
 var rabbit_held = false
@@ -32,10 +34,11 @@ onready var water_trough = world.get_node("YSort/WaterTrough")
 onready var food_trough = world.get_node("YSort/FoodTrough")
 
 func _ready():
-	rabbit_type = Global.decide_type()
-	rabbit_speed = Global.rabbits[rabbit_type][1]
-	$Sprite.texture = load("res://Textures/Rabbits/" + rabbit_type.to_lower() + ".png")
-	manage_state()
+	if is_wild == true:
+		rabbit_type = Global.decide_type()
+		rabbit_speed = Global.rabbits[rabbit_type][1]
+		$Sprite.texture = load("res://Textures/Rabbits/" + rabbit_type.to_lower() + ".png")
+		manage_state()
 
 func _process(delta):
 	if rabbit_held == false:
@@ -87,7 +90,7 @@ func _on_Timer_timeout():
 
 
 func manage_state():
-	current_state = Global.decide_state(rabbit_type)
+	current_state = RabbitManager.decide_state(rabbit_type)
 	
 	if needs_water == true:
 		make_path()
@@ -100,7 +103,6 @@ func manage_state():
 			move(decide_dir())
 		if current_state == "IDLE":
 			pass
-
 
 func move_along_path(dist):
 	var last_point = position

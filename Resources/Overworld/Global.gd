@@ -7,18 +7,8 @@ onready var root = get_tree().get_root()
 
 var rabbit = preload("res://Resources/Rabbit/WildRabbit.tscn")
 
+var path = OS.get_data_dir() + "/CoolMoon Studios/ProjectR/"
 var last_pos
-
-var state_variants = [
-	[["WALK", 0.75], ["IDLE", 0.25]],
-	[["WALK", 0.25], ["IDLE", 0.75]]
-	]
-
-var rabbits = {
-#   name            state chances       speed
-	"Normal" 	: 	[state_variants[0], 10],
-	"Stone" 	: 	[state_variants[1], 5]
-}
 
 var vegetables = [
 	"Carrot"
@@ -71,36 +61,6 @@ func load_files(path):
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
-
-
-func decide_type():
-	randomize()
-	var key_list = rabbits.keys()
-	var key = key_list[randi() % key_list.size()]
-	
-	return key
-
-
-func decide_state(type):
-	var current_state = null
-	var states = rabbits[type][0]
-	
-	randomize()
-	var s = rand_range(0, 1)
-	var remainder = 1
-	
-	var previous = 1
-	for i in states.size():
-		remainder -= states[i][1]
-		if (s >= remainder && s < previous):
-			current_state = states[i][0]
-			break
-		if remainder == 0:
-			print("Whoops")
-		else:
-			previous -= states[i][1]
-			
-	return current_state
 
 
 func file_check(scene_name):

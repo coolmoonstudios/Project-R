@@ -86,7 +86,7 @@ func _on_Timer_timeout():
 
 
 func manage_state():
-	current_state = Global.decide_state(rabbit_type)
+	current_state = RabbitManager.decide_state(rabbit_type)
 	
 	if needs_water == true:
 		make_path()
